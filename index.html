@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M. Murat Cerit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a1a;
+      --ink-mid:   #555;
+      --ink-light: #999;
+      --paper:     #fafaf8;
+      --rule:      #ddd;
+      --accent:    #2a4d6e;   /* deep Bosphorus blue */
+      --gap:       clamp(2rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: calc(var(--gap) * 1.5) 0 var(--gap);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .site-tagline {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-tagline span {
+      color: var(--accent);
+    }
+
+    /* ── Nav ── */
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: var(--gap) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── About ── */
+    .about-text {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ── Experience & Education ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 0.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-meta {
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      line-height: 1.5;
+      padding-top: 0.15rem;
+    }
+
+    .entry-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .entry-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 0.1rem;
+    }
+
+    .entry-desc {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* ── Skills / Tags ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      border: 1px solid var(--rule);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Contact ── */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-links a {
+      font-size: 0.9rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.2s;
+    }
+
+    .contact-links a:hover { color: var(--accent); }
+
+    .contact-links .icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 0 3rem;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <h1 class="site-name">M. Murat Cerit</h1>
+    <p class="site-tagline">PhD · <span>Marketing Researcher</span> · Lecturer · Sworn Translator</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I work at the intersection of marketing theory and real-world practice — combining qualitative and quantitative research methods to generate insights that are socially relevant, economically feasible, and managerially actionable. Currently a lecturer at Türkisch-Deutsche Universität, Istanbul.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <p class="section-label">Experience</p>
+
+    <div class="entry">
+      <div class="entry-meta">2026 — Present</div>
+      <div>
+        <div class="entry-title">Lecturer</div>
+        <div class="entry-org">Türkisch-Deutsche Universität</div>
+        <div class="entry-desc">Statistics and scientific research methodologies.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">2018 — 2026</div>
+      <div>
+        <div class="entry-title">Research Assistant</div>
+        <div class="entry-org">Türkisch-Deutsche Universität</div>
+        <div class="entry-desc">Marketing communication research during social crises; qualitative thematic analysis and automated text analysis; R programming; coordination of student internships; Vice Manager of TDU Digital Transformation Excellence Centre.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">2023 — Present</div>
+      <div>
+        <div class="entry-title">German Language Instructor</div>
+        <div class="entry-org">TAÜ-SEM (Continuing Education Centre)</div>
+        <div class="entry-desc">Teaching elementary German language courses.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">2012 — 2014</div>
+      <div>
+        <div class="entry-title">International Sales Executive</div>
+        <div class="entry-org">Fabor Jewellery</div>
+        <div class="entry-desc">Management of retail chain stores in Australia, Germany, and the UAE; oversight of monthly gold transactions and international sales exhibitions.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <p class="section-label">Education</p>
+
+    <div class="entry">
+      <div class="entry-meta">2018 — 2025</div>
+      <div>
+        <div class="entry-title">PhD in Marketing</div>
+        <div class="entry-org">İstanbul Teknik Üniversitesi</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">2015 — 2017</div>
+      <div>
+        <div class="entry-title">M.Sc. International Business & Marketing Management</div>
+        <div class="entry-org">University of Bremen</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">2004 — 2008</div>
+      <div>
+        <div class="entry-title">BBA, Business Administration</div>
+        <div class="entry-org">Istanbul University</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <p class="section-label">Skills & Expertise</p>
+    <div class="tags">
+      <span class="tag">Qualitative Research</span>
+      <span class="tag">Thematic Analysis</span>
+      <span class="tag">Automated Text Analysis</span>
+      <span class="tag">R Programming</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Academic Writing</span>
+      <span class="tag">Sworn Translation (EN–DE–TR)</span>
+      <span class="tag">German Instruction</span>
+      <span class="tag">Marketing Communication</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-links">
+      <a href="mailto:murat.cerit@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M2 7l10 7 10-7"/>
+        </svg>
+        murat.cerit@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/mmuratcerit/" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="3"/>
+          <path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/>
+        </svg>
+        linkedin.com/in/mmuratcerit
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 M. Murat Cerit
+  </footer>
+
+</div>
+</body>
+</html>
