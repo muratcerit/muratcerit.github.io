@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — M. Murat Cerit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a1a;
+      --ink-mid:   #555;
+      --ink-light: #999;
+      --paper:     #fafaf8;
+      --rule:      #ddd;
+      --accent:    #2a4d6e;
+      --gap:       clamp(2rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: calc(var(--gap) * 1.5) 0 var(--gap);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .site-tagline {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-tagline span { color: var(--accent); }
+
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: var(--gap) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Publication entries ── */
+    .pub {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .pub:last-child { margin-bottom: 0; }
+
+    .pub-year {
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      padding-top: 0.15rem;
+      line-height: 1.4;
+    }
+
+    .pub-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .pub-title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .pub-title a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .pub-meta {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+
+    .pub-meta em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .pub-doi {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .pub-doi:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── Project ── */
+    .project {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .project-meta {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      margin-top: 0.2rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 0 3rem;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+    }
+
+    @media (max-width: 520px) {
+      .pub { grid-template-columns: 1fr; gap: 0.2rem; }
+      .pub-year { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1 class="site-name">M. Murat Cerit</h1>
+    <p class="site-tagline">PhD · <span>Marketing Researcher</span> · Lecturer · Sworn Translator</p>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="publications.html" class="active">Publications</a>
+    </nav>
+  </header>
+
+  <!-- Journal Articles -->
+  <section id="articles">
+    <p class="section-label">Journal Articles</p>
+
+    <div class="pub">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.26650/ISTJECON2025-1793138" target="_blank" rel="noopener">
+            A Comparative Analysis of Brands' Social Media Messages before, during and after the Pandemic
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>Istanbul Journal of Economics</em>, pp. 1–22
+        </div>
+        <a class="pub-doi" href="https://doi.org/10.26650/ISTJECON2025-1793138" target="_blank" rel="noopener">
+          doi: 10.26650/ISTJECON2025-1793138
+        </a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.2478/mmcks-2025-0009" target="_blank" rel="noopener">
+            Examining the Change in Brands' Marketing Communication during COVID-19 from a Crisis Communication Perspective
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>Management &amp; Marketing</em>, vol. 20, no. 2, pp. 23–46
+        </div>
+        <a class="pub-doi" href="https://doi.org/10.2478/mmcks-2025-0009" target="_blank" rel="noopener">
+          doi: 10.2478/mmcks-2025-0009
+        </a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2021</div>
+      <div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.15659/patu.7.2.058" target="_blank" rel="noopener">
+            A Theoretical Discussion on Marketing Agility and Adaptive Marketing Capabilities in Regard to Firm Performance
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>Pazarlama Teorisi ve Uygulamaları Dergisi</em>, vol. 7, no. 2, pp. 129–147
+        </div>
+        <a class="pub-doi" href="https://doi.org/10.15659/patu.7.2.058" target="_blank" rel="noopener">
+          doi: 10.15659/patu.7.2.058
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Conference Papers -->
+  <section id="conferences">
+    <p class="section-label">Conference Papers</p>
+
+    <div class="pub">
+      <div class="pub-year">2024</div>
+      <div>
+        <div class="pub-title">
+          <a href="https://proceedings.emac-online.org/index.cfm?abstractid=R2024-122611" target="_blank" rel="noopener">
+            Text Mining Applications to Brands' Social Media Messages Pre-, During and Post-Pandemic
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>European Marketing Academy 15th Regional Conference</em>, Lisbon, Portugal
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2024</div>
+      <div>
+        <div class="pub-title">
+          <a href="http://pazarlama.org.tr/ppadpk-2024/uploads/files/27.%20Pazarlama%20Kongresi%20Bildiri%20Kitab%C4%B1%281%29.pdf" target="_blank" rel="noopener">
+            Metin Madenciliği ile Markaların Sosyal Medya Mesajlarının İncelenmesi: Pandemi Öncesi, Sırası ve Sonrası Dönemi Kapsayan Bir Araştırma
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>27. Pazarlama Kongresi</em>, Erzurum, Türkiye, pp. 423–437
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">
+          <a href="http://www.pazarlama.org.tr/ppadpk-2022/" target="_blank" rel="noopener">
+            Thematic Analysis of Brand Response Strategies of Organizations to COVID-19 Based on SCCT and Message Framing
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>26. Pazarlama Kongresi</em>, Kırşehir, Türkiye
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2021</div>
+      <div>
+        <div class="pub-title">
+          <a href="http://pazarlama.org.tr/ppadpk-2021/index.php?menu=577" target="_blank" rel="noopener">
+            A Theoretical Discussion on Marketing Agility and Adaptive Marketing Capabilities in Regards to Firm Performance
+          </a>
+        </div>
+        <div class="pub-meta">
+          Cerit, M. M. &amp; Karaosmanoğlu, E. —
+          <em>25. Pazarlama Kongresi</em>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="project">
+      <div class="project-title">TDU Digital Transformation Excellence Centre</div>
+      <div class="project-meta">Türkisch-Deutsche Universität · 2022 — ongoing · Role: Deputy Project Coordinator · Funded by Istanbul Development Agency</div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html" style="color: inherit; text-decoration: none;">← Back to muratcerit.github.io</a>
+  </footer>
+
+</div>
+</body>
+</html>
